@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b846lyk2uy6h6"]
+
+[ext_resource type="Script" uid="uid://ddgr324fni37c" path="res://slicer.gd" id="1_uo4xo"]
+[ext_resource type="ArrayMesh" uid="uid://bp4nqjbo7kqti" path="res://Trex.obj" id="2_ynkhc"]
+
+[sub_resource type="MultiMesh" id="MultiMesh_0lqn7"]
+transform_format = 1
+mesh = ExtResource("2_ynkhc")
+
+[node name="Slicer" type="Node3D"]
+script = ExtResource("1_uo4xo")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_ynkhc")
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
+multimesh = SubResource("MultiMesh_0lqn7")

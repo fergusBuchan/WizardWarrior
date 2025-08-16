@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlqjha8d8ahge"]
+[gd_scene load_steps=10 format=3 uid="uid://dlqjha8d8ahge"]
 
-[ext_resource type="Script" path="res://player/scripts/controller.gd" id="1_d40a4"]
-[ext_resource type="Script" path="res://player/character_node.gd" id="2_bru2j"]
-[ext_resource type="Script" path="res://player/scripts/physics_node.gd" id="2_spaox"]
+[ext_resource type="Script" uid="uid://dudfe48mq63oe" path="res://player/scripts/controller.gd" id="1_d40a4"]
+[ext_resource type="Script" uid="uid://0tvjak4o14xm" path="res://player/character_node.gd" id="2_bru2j"]
+[ext_resource type="Script" uid="uid://cnew8ralavdmw" path="res://player/scripts/physics_node.gd" id="2_spaox"]
 
 [sub_resource type="Animation" id="Animation_hh78j"]
 length = 0.001
@@ -60,32 +60,30 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_33fme"]
 _data = {
-"RESET": SubResource("Animation_hh78j"),
-"crouch": SubResource("Animation_gw331")
+&"RESET": SubResource("Animation_hh78j"),
+&"crouch": SubResource("Animation_gw331")
 }
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_o7pn2"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ekg46"]
 
-[node name="Controller" type="Node3D" node_paths=PackedStringArray("physics_node")]
+[sub_resource type="QuadMesh" id="QuadMesh_uivlv"]
+
+[node name="Controller" type="Node3D"]
 script = ExtResource("1_d40a4")
-physics_node = NodePath("CharacterNode/PhysicsNode")
 
 [node name="CharacterNode" type="Node3D" parent="."]
 script = ExtResource("2_bru2j")
 
 [node name="CharacterAnimator" type="AnimationPlayer" parent="CharacterNode"]
 
-[node name="PhysicsNode" type="CharacterBody3D" parent="CharacterNode" node_paths=PackedStringArray("camera", "physics_animator", "headbang_node")]
+[node name="PhysicsNode" type="CharacterBody3D" parent="CharacterNode"]
 script = ExtResource("2_spaox")
-camera = NodePath("Camera")
-physics_animator = NodePath("PhysicsAnimator")
-headbang_node = NodePath("HeadbangNode")
 
 [node name="PhysicsAnimator" type="AnimationPlayer" parent="CharacterNode/PhysicsNode"]
 libraries = {
-"": SubResource("AnimationLibrary_33fme")
+&"": SubResource("AnimationLibrary_33fme")
 }
 
 [node name="Hibox" type="CollisionShape3D" parent="CharacterNode/PhysicsNode"]
@@ -100,3 +98,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 current = true
 
 [node name="PovHands" type="MeshInstance3D" parent="CharacterNode/PhysicsNode/Camera"]
+
+[node name="BoardTransform" type="RemoteTransform3D" parent="CharacterNode/PhysicsNode"]
+remote_path = NodePath("../Board")
+update_rotation = false
+
+[node name="Board" type="MeshInstance3D" parent="CharacterNode/PhysicsNode"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+top_level = true
+mesh = SubResource("QuadMesh_uivlv")
+skeleton = NodePath("../..")

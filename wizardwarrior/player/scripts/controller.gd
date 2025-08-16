@@ -1,8 +1,8 @@
 extends Node
 
 #child object
-@export var character_node:Node
-@export var physics_node:CharacterBody3D
+@onready var character_node = $CharacterNode
+@onready var physics_node = $CharacterNode/PhysicsNode
 
 #controller settings
 @export var sensitivity = 0.01
@@ -45,7 +45,9 @@ func _input(event: InputEvent) -> void:
 	# rotate camera/player
 	if event is InputEventMouseMotion:
 		physics_node.turn_view(event.relative.x * sensitivity,event.relative.y * sensitivity)
-	
+	else:
+		physics_node.turn_view(0.0,0.0)
+		
 	#fire
 	if event is InputEventMouseButton and event.pressed:
 		character_node.fire()

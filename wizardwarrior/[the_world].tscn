@@ -1,61 +1,18 @@
-[gd_scene load_steps=10 format=4 uid="uid://b42urf5l56b8j"]
+[gd_scene load_steps=4 format=3 uid="uid://b42urf5l56b8j"]
 
 [ext_resource type="PackedScene" uid="uid://dlqjha8d8ahge" path="res://player/controller.tscn" id="1_5v0j1"]
-[ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_8dw5x"]
-[ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="3_arlxo"]
-[ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="4_25xko"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aiblu"]
-albedo_texture = ExtResource("4_25xko")
-metallic_specular = 0.0
-texture_filter = 2
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_747po"]
-_surfaces = [{
-"aabb": AABB(-2, -0.5, -4.5, 7.5, 1, 6.5),
-"attribute_data": PackedByteArray("AACAPwAAgL4AAIA/AACAPgAAgL8AAIA+AACAvwAAgL4AAIC/AACAvgAAgD8AAIC+AACAPwAAgD4AAIC/AACAPgAAgD8AAIC/AACAPwAAgD8AAIC/AACAPwAAgL8AAIC/AACAvwAAgL8AAIA/AACAvwAAgD8AAIA/AACAvwAAgD8AAIA/AACAvgAAgD8AAIA+AACAvwAAgD4AAIC/AACAvgAAgL8AAIC+AACAPwAAgL4AAIA/AACAPgAAgL8AAIA+AADAvwAAgL4AAMC/AAAAAAAAMMAAAAAAAAAwwAAAgL4AABDAAACAvgAAQL8AAIC+AABAvwAAAAAAABDAAAAAAAAAEEAAADDAAAAQQAAAwL8AAEA/AADAvwAAQD8AADDAAAAQwAAAMMAAAEC/AAAwwAAAQL8AAMC/AAAQwAAAwL8AABBAAACAvgAAEEAAAAAAAABAPwAAAAAAAEA/AACAvgAAwD8AAIC+AAAwQAAAgL4AADBAAAAAAAAAwD8AAAAA"),
-"format": 34359742487,
-"index_count": 72,
-"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcAGAAZABoAGAAaABsAHAAdAB4AHAAeAB8AIAAhACIAIAAiACMAJAAlACYAJAAmACcAKAApACoAKAAqACsALAAtAC4ALAAuAC8A"),
-"material": SubResource("StandardMaterial3D_aiblu"),
-"name": "__TB_empty",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 48,
-"vertex_data": PackedByteArray("AAAAwAAAAD8AAADAAAAAwAAAAL8AAADAAAAAQAAAAL8AAADAAAAAQAAAAD8AAADAAAAAwAAAAD8AAADAAAAAwAAAAD8AAABAAAAAwAAAAL8AAABAAAAAwAAAAL8AAADAAAAAQAAAAL8AAADAAAAAwAAAAL8AAADAAAAAwAAAAL8AAABAAAAAQAAAAL8AAABAAAAAQAAAAD8AAADAAAAAQAAAAD8AAABAAAAAwAAAAD8AAABAAAAAwAAAAD8AAADAAAAAQAAAAD8AAADAAAAAQAAAAL8AAADAAAAAQAAAAL8AAABAAAAAQAAAAD8AAABAAAAAwAAAAD8AAABAAAAAQAAAAD8AAABAAAAAQAAAAL8AAABAAAAAwAAAAL8AAABAAABAQAAAAD8AAJDAAABAQAAAAAAAAJDAAACwQAAAAAAAAJDAAACwQAAAAD8AAJDAAABAQAAAAD8AAJDAAABAQAAAAD8AAMC/AABAQAAAAAAAAMC/AABAQAAAAAAAAJDAAACwQAAAAAAAAJDAAABAQAAAAAAAAJDAAABAQAAAAAAAAMC/AACwQAAAAAAAAMC/AACwQAAAAD8AAJDAAACwQAAAAD8AAMC/AABAQAAAAD8AAMC/AABAQAAAAD8AAJDAAACwQAAAAD8AAJDAAACwQAAAAAAAAJDAAACwQAAAAAAAAMC/AACwQAAAAD8AAMC/AABAQAAAAD8AAMC/AACwQAAAAD8AAMC/AACwQAAAAAAAAMC/AABAQAAAAAAAAMC//////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+//////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+/")
-}]
-
-[sub_resource type="ArrayOccluder3D" id="ArrayOccluder3D_yrx3m"]
-vertices = PackedVector3Array(-2, 0.5, -2, -2, -0.5, -2, 2, -0.5, -2, 2, 0.5, -2, -2, 0.5, -2, -2, 0.5, 2, -2, -0.5, 2, -2, -0.5, -2, 2, -0.5, -2, -2, -0.5, -2, -2, -0.5, 2, 2, -0.5, 2, 2, 0.5, -2, 2, 0.5, 2, -2, 0.5, 2, -2, 0.5, -2, 2, 0.5, -2, 2, -0.5, -2, 2, -0.5, 2, 2, 0.5, 2, -2, 0.5, 2, 2, 0.5, 2, 2, -0.5, 2, -2, -0.5, 2, 3, 0.5, -4.5, 3, 0, -4.5, 5.5, 0, -4.5, 5.5, 0.5, -4.5, 3, 0.5, -4.5, 3, 0.5, -1.5, 3, 0, -1.5, 3, 0, -4.5, 5.5, 0, -4.5, 3, 0, -4.5, 3, 0, -1.5, 5.5, 0, -1.5, 5.5, 0.5, -4.5, 5.5, 0.5, -1.5, 3, 0.5, -1.5, 3, 0.5, -4.5, 5.5, 0.5, -4.5, 5.5, 0, -4.5, 5.5, 0, -1.5, 5.5, 0.5, -1.5, 3, 0.5, -1.5, 5.5, 0.5, -1.5, 5.5, 0, -1.5, 3, 0, -1.5)
-indices = PackedInt32Array(0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7, 8, 9, 10, 8, 10, 11, 12, 13, 14, 12, 14, 15, 16, 17, 18, 16, 18, 19, 20, 21, 22, 20, 22, 23, 24, 25, 26, 24, 26, 27, 28, 29, 30, 28, 30, 31, 32, 33, 34, 32, 34, 35, 36, 37, 38, 36, 38, 39, 40, 41, 42, 40, 42, 43, 44, 45, 46, 44, 46, 47)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_srdag"]
-points = PackedVector3Array(-2, 0.5, -2, -2, -0.5, -2, 2, -0.5, -2, 2, 0.5, -2, -2, 0.5, 2, -2, -0.5, 2, 2, -0.5, 2, 2, 0.5, 2)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kwtwl"]
-points = PackedVector3Array(3, 0.5, -4.5, 3, 0, -4.5, 5.5, 0, -4.5, 5.5, 0.5, -4.5, 3, 0.5, -1.5, 3, 0, -1.5, 5.5, 0, -1.5, 5.5, 0.5, -1.5)
+[ext_resource type="PackedScene" uid="uid://c7p3ngdalq5xp" path="res://maps/L1_enter_dungoen.blend" id="2_uxoqk"]
+[ext_resource type="PackedScene" uid="uid://b846lyk2uy6h6" path="res://slicer.tscn" id="3_k5cer"]
 
 [node name="[The World]" type="Node3D"]
 
 [node name="Controller" parent="." instance=ExtResource("1_5v0j1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="FuncGodotMap" type="Node3D" parent="."]
-script = ExtResource("2_8dw5x")
-local_map_file = "res://maps/castle.map"
-map_settings = ExtResource("3_arlxo")
+[node name="L1_enter_dungoen" parent="." instance=ExtResource("2_uxoqk")]
 
-[node name="entity_0_worldspawn" type="StaticBody3D" parent="FuncGodotMap"]
-collision_mask = 0
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 5, 0)
+omni_range = 30.0
 
-[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_0_worldspawn"]
-mesh = SubResource("ArrayMesh_747po")
-
-[node name="entity_0_occluder_instance" type="OccluderInstance3D" parent="FuncGodotMap/entity_0_worldspawn"]
-occluder = SubResource("ArrayOccluder3D_yrx3m")
-
-[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
-shape = SubResource("ConvexPolygonShape3D_srdag")
-
-[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
-shape = SubResource("ConvexPolygonShape3D_kwtwl")
+[node name="Slicer" parent="." instance=ExtResource("3_k5cer")]
